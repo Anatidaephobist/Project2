@@ -2,7 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+    <!--<link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" /> -->
+    <link rel="stylesheet" href="/styles/style.css" type="text/css" />
+   <!-- <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script> -->
+<!-- Load React. -->
+  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+  <!-- <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script> -->
+ <!-- <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script> -->
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
@@ -22,20 +28,256 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title>Verkkokauppa</title>
+    
+    
+
+    
+    
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+    
+    
+    
+    <!-- ylänavigaatio -->
+      <div id="topNavigation">
+          
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+          <!-- Sivun logo -->
+          <img src="/pictures/logo.png" id="logoImg"></img>
+          <!-- sivun nimi -->
+          <h1 id="siteName">VERKKOKAUPPA</h1>
+          
+          <!-- ostoskori logiikka -->
+          
+           <div id="shoppingCart"></div>
+   <div id="root"></div>
+           
+           
+           
+           
+    
+      
+      <div id="searchbar">
+          <!-- search ikoni -->
+          <img src="/pictures/searchicon.png" id="searchiconImg"></img>
+          <!-- search haku -->
+          <input type="text" placeholder="Search.." id="searchTextField">
+          </div>
+          
+          
+          <div id="shopAndLoginWrapper">
+          <!-- kirjaudu-nappi-->
+          <div id="logInButton">
+              <button class="buttonStyleLogin"> Kirjaudu</button>
+          </div>
+          <!-- ostoskori -->
+          <div>
+          <img src="/pictures/shoppingcart.png" id="shoppingcartImg"></img>
+          </div>
+          </div>
+          
+          
+          
+          
+      </div> <!--  end of topnavigation -->
+      
+      
+      <!-- sivunavigaatio -->
+      <div id="sideNavigation">
+          <div id="category1" class="category"><h1>Kategoria 1</h1></div>
+          <div id="category2" class="category"><h1>Kategoria 2</h1></div>
+          <div id="category3" class="category"><h1>Kategoria 3</h1></div>
+          <div id="category4" class="category"><h1>Kategoria 4</h1></div>
+          <div id="category5" class="category"><h1>Kategoria 5</h1></div>
+          
+          
+      </div> <!--  end of sidenavigation -->
+      
+      <!-- main content -->
+      <div id="mainContent">
+          <!-- karuselli -->
+<div id="mainCarousel">
+  <img class="carousel" src="/pictures/kuva1.jpg">
+  <img class="carousel" src="/pictures/kuva2.jpg">
+  <img class="carousel" src="/pictures/kuva3.jpg">
+  
+  <button id="leftButton" class="carouselButton" onclick="plusDivs(-1)">&#10094;</button>
+  <button id="rightButton" class="carouselButton" onclick="plusDivs(+1)">&#10095;</button>
+ 
+</div>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+ <!--- karuselli JS --------------------------------------------------------------------------------------------- --> 
+<script>
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("carousel");
+  if (n > x.length) {slideIndex = 1} 
+  if (n < 1) {slideIndex = x.length} ;
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none"; 
+  }
+  x[slideIndex-1].style.display = "block"; 
+}
+</script>
+<!--- end of karuselli JS ------------------------------------------------------------------------------------------- --> 
+
+    <!-- Etusivun tuotteet -->
+
+    <!-- itempopup.html -->
+    <div w3-include-html="file.html"></div>
+    
+    <div id="itemSlot1" class="itemSlot">
+        <div class="itemPic">
+            <img src="/pictures/item1.png"></img>
+        </div> 
+        <p>Duis aliquet lectus non lectus suscipit vulputate. Donec ut vestibulum mauris </p>
+        <div id="price"> <p> 3€</p></div>
+    </div> <!-- end of itemslot -------------------------------------------------------------------------------- -->
+    
+    <div id="itemSlot2" class="itemSlot">
+        <div class="itemPic">
+            <img src="/pictures/item1.png"></img>
+        </div> 
+        <p>Duis aliquet lectus non lectus suscipit vulputate. Donec ut vestibulum mauris </p>
+        <div id="price"> <p> 3€</p></div>
+    </div> <!-- end of itemslot -------------------------------------------------------------------------------- -->
+    
+    <div id="itemSlot3" class="itemSlot">
+        <div class="itemPic">
+            <img src="/pictures/item1.png"></img>
+        </div> 
+        <p>Duis aliquet lectus non lectus suscipit vulputate. Donec ut vestibulum mauris </p>
+        <div id="price"> <p> 3€</p></div>
+    </div> <!-- end of itemslot -------------------------------------------------------------------------------- -->
+    
+    <div id="itemSlot4" class="itemSlot">
+        <div class="itemPic">
+            <img src="/pictures/item1.png"></img>
+        </div> 
+        <p>Duis aliquet lectus non lectus suscipit vulputate. Donec ut vestibulum mauris </p>
+        <div id="price"> <p> 3€</p></div>
+    </div> <!-- end of itemslot -------------------------------------------------------------------------------- -->
+    
+    <div id="itemSlot5" class="itemSlot">
+        <div class="itemPic">
+            <img src="/pictures/item1.png"></img>
+        </div> 
+        <p>Duis aliquet lectus non lectus suscipit vulputate. Donec ut vestibulum mauris </p>
+        <div id="price"> <p> 3€</p></div>
+    </div> <!-- end of itemslot -------------------------------------------------------------------------------- -->
+    
+    <div id="itemSlot6" class="itemSlot">
+        <div class="itemPic">
+            <img src="/pictures/item1.png"></img>
+        </div> 
+        <p>Duis aliquet lectus non lectus suscipit vulputate. Donec ut vestibulum mauris </p>
+        <div id="price"> <p> 3€</p></div>
+    </div> <!-- end of itemslot -------------------------------------------------------------------------------- -->
+    
+    <div id="itemSlot7" class="itemSlot">
+        <div class="itemPic">
+            <img src="/pictures/item1.png"></img>
+        </div> 
+        <p>Duis aliquet lectus non lectus suscipit vulputate. Donec ut vestibulum mauris </p>
+        <div id="price"> <p> 3€</p></div>
+    </div> <!-- end of itemslot -------------------------------------------------------------------------------- -->
+    
+    <div id="itemSlot8" class="itemSlot">
+        <div class="itemPic">
+            <img src="/pictures/item1.png"></img>
+        </div> 
+        <p>Duis aliquet lectus non lectus suscipit vulputate. Donec ut vestibulum mauris </p>
+        <div id="price"> <p> 3€</p></div>
+    </div> <!-- end of itemslot -------------------------------------------------------------------------------- -->
+    
+    <div id="itemSlot9" class="itemSlot">
+        <div class="itemPic">
+            <img src="/pictures/item1.png"></img>
+        </div> 
+        <p>Duis aliquet lectus non lectus suscipit vulputate. Donec ut vestibulum mauris </p>
+        <div id="price"> <p> 3€</p></div>
+    </div> <!-- end of itemslot -------------------------------------------------------------------------------- -->
+    
+    <div id="itemSlot10" class="itemSlot">
+        <div class="itemPic">
+            <img src="/pictures/item1.png"></img>
+        </div> 
+        <p>Duis aliquet lectus non lectus suscipit vulputate. Donec ut vestibulum mauris </p>
+        <div id="price"> <p> 3€</p></div>
+    </div> <!-- end of itemslot -------------------------------------------------------------------------------- -->
+    
+    <div id="itemSlot11" class="itemSlot">
+        <div class="itemPic">
+            <img src="/pictures/item1.png"></img>
+        </div> 
+        <p>Duis aliquet lectus non lectus suscipit vulputate. Donec ut vestibulum mauris </p>
+        <div id="price"> <p> 3€</p></div>
+    </div> <!-- end of itemslot -------------------------------------------------------------------------------- -->
+    
+    <div id="itemSlot12" class="itemSlot">
+        <div class="itemPic">
+            <img src="/pictures/item1.png"></img>
+        </div> 
+        <p>Duis aliquet lectus non lectus suscipit vulputate. Donec ut vestibulum mauris </p>
+        <div id="price"> <p> 3€</p></div>
+    </div> <!-- end of itemslot -------------------------------------------------------------------------------- -->
+    
+    <div id="itemSlot13" class="itemSlot">
+        <div class="itemPic">
+            <img src="/pictures/item1.png"></img>
+        </div> 
+        <p>Duis aliquet lectus non lectus suscipit vulputate. Donec ut vestibulum mauris </p>
+        <div id="price"> <p> 3€</p></div>
+    </div> <!-- end of itemslot -------------------------------------------------------------------------------- -->
+    
+    <div id="itemSlot14" class="itemSlot">
+        <div class="itemPic">
+            <img src="/pictures/item1.png"></img>
+        </div> 
+        <p>Duis aliquet lectus non lectus suscipit vulputate. Donec ut vestibulum mauris </p>
+        <div id="price"> <p> 3€</p></div>
+    </div> <!-- end of itemslot -------------------------------------------------------------------------------- -->
+    
+    <div id="itemSlot15" class="itemSlot">
+        <div class="itemPic">
+            <img src="/pictures/item1.png"></img>
+        </div> 
+        <p>Duis aliquet lectus non lectus suscipit vulputate. Donec ut vestibulum mauris </p>
+        <div id="price"> <p> 3€</p></div>
+    </div> <!-- end of itemslot -------------------------------------------------------------------------------- -->
+    
+    <div id="itemSlot16" class="itemSlot">
+        <div class="itemPic">
+            <img src="/pictures/item1.png"></img>
+        </div> 
+        <p>Duis aliquet lectus non lectus suscipit vulputate. Donec ut vestibulum mauris </p>
+        <div id="price"> <p> 3€</p></div>
+    </div> <!-- end of itemslot -------------------------------------------------------------------------------- -->
+    
+    <div id="itemSlot17" class="itemSlot">
+        <div class="itemPic">
+            <img src="/pictures/item1.png"></img>
+        </div> 
+        <p>Duis aliquet lectus non lectus suscipit vulputate. Donec ut vestibulum mauris </p>
+        <div id="price"> <p> 3€</p></div>
+    </div> <!-- end of itemslot -------------------------------------------------------------------------------- -->
+
+       </div> <!--  end of main content -->
+      
+      
+
+
+
+  
+  
+   
   </body>
 </html>
